@@ -24,3 +24,6 @@ Thumbs.db
 *.ntvs*
 *.njsproj
 *.sln
+
+# Optional: Ignore package-lock.json
+package-lock.json
