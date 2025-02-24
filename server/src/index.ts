@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import * as dynamoose from 'dynamoose';
+import courseRoutes from './routes/courseRoutes';
 dotenv.config();
 const isproduction = process.env.NODE_ENV === 'production';
 if(!isproduction){
@@ -23,6 +24,7 @@ app.use(cors());
 app.get('/', (req, res) => {
 	res.send('Hello World');
 });
+app.use('/courses',courseRoutes);
 const port = process.env.PORT || 3000;
 if(!isproduction){
 	app.listen(port, () => {

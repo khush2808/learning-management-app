@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "build": "rimraf dist && npx tsc ",
+    "build": "rimraf dist && npx tsc ",
     "start": "npm run build && node dist/index.js",
     "dev": "npm run build && concurrently \"npx tsc -w\" \"nodemon --exec ts-node src/index.ts\"",
     "seed": "ts-node src/seed/seedDynamodb.ts"
@@ -22,6 +22,7 @@
     "express": "^4.21.2",
     "helmet": "^8.0.0",
     "morgan": "^1.10.0",
+    "pluralize": "^8.0.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
@@ -29,7 +30,9 @@
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.13.5",
+    "@types/pluralize": "^0.0.33",
     "@types/uuid": "^10.0.0",
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
