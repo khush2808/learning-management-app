@@ -1,10 +1,15 @@
+import NonDashboardNavbar from "@/components/NonDashboardNavbar";
+import Landing from "@/app/(nondashboard)/landing/page";
+import Footer from "@/components/Footer";
 
-export default function Home  (){
-	return (
-		<>
-		<h1 className="font-semibold">hi</h1>
-		<h1> hello</h1>
-		</>
-	)
+export default function Home() {
+  return (
+    <div className="nondashboard-layout">
+      <NonDashboardNavbar />
+      <main className="nondashboard-layout__main">
+        <Landing />
+      </main>
+      <Footer />
+    </div>
+  );
 }
-
