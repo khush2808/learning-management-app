@@ -18,7 +18,7 @@ const NonDashboardNavbar = () => {
 			</div>
 		</div>
 		</div>
-		</div>
+		
 		
 		<div className='nondashboard-navbar__actions'>
 			<button title ="notification button" className="nondashboard-navbar_notifications-button">
@@ -27,6 +27,7 @@ const NonDashboardNavbar = () => {
 			</button>
 			{/* sign-in buttons */}
 			
+		</div>
 		</div>
 		</nav>
 		

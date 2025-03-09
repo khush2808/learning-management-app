@@ -7,8 +7,8 @@ import Image from "next/image";
 import { useCarousel } from "@/hooks/useCarousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useRouter } from "next/navigation";
-
-
+import { useGetCoursesQuery } from "@/state/api";
+import  CourseCardSearch  from "@/components/CourseCardSearch";
 const LoadingSkeleton = () => {
   return (
     <div className="landing-skeleton">
@@ -45,13 +45,16 @@ const LoadingSkeleton = () => {
 const Landing = () => {
   const router = useRouter();
   const currentImage = useCarousel({ totalImages: 3 });
+	const { data: courses,isLoading,isError } = useGetCoursesQuery({});
+	console.log("courses",courses);
+	// console.log(courses);
   const handleCourseClick = (courseId: string) => {
     router.push(`/search?id=${courseId}`, {
       scroll: false,
     });
   };
 
-  //  return <LoadingSkeleton />;
+   if(isLoading)return <LoadingSkeleton />;
 
   return (
     <motion.div
@@ -123,7 +126,7 @@ const Landing = () => {
           ))}
         </div>
 
-        {/* <div className="landing__courses">
+ <div className="landing__courses">
           {courses &&
             courses.slice(0, 4).map((course, index) => (
               <motion.div
@@ -133,13 +136,14 @@ const Landing = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ amount: 0.4 }}
               >
+							
                 <CourseCardSearch
                   course={course}
                   onClick={() => handleCourseClick(course.courseId)}
                 />
               </motion.div>
             ))}
-        </div> */}
+        </div> 
       </motion.div>
     </motion.div>
   );
